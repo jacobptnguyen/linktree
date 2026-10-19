@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jacob Nguyen</title>
+    <meta name="description" content="Jacob Nguyen's links: LinkedIn, GitHub, portfolio, and resume." />
+    <script>
+      // Picks the theme before the page shows, so a saved dark theme never flashes light first.
+      // Use the saved choice if there is one, otherwise follow the computer's setting.
+      const saved = localStorage.getItem('theme')
+      const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches
+      document.documentElement.dataset.theme = saved || (prefersDark ? 'dark' : 'light')
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+/* Light theme colors */
+:root {
+  --bg: #f3f5f7;
+  --text: #16191d;
+  --muted: #5a626c;
+  --node-bg: #ffffff;
+  --line: #9aa3ad;
+  --accent: #b86e00;
+}
+
+/* Dark theme colors */
+[data-theme='dark'] {
+  --bg: #14181d;
+  --text: #e6e9ec;
+  --muted: #9ba4ae;
+  --node-bg: #1c2229;
+  --line: #4b5561;
+  --accent: #f0a830;
+}
+
+/* Base text size: 1.2% of the screen width, but never below 15px or above 22px.
+   Every other size below is in rem (a multiple of this), so the whole page scales together. */
+html {
+  font-size: clamp(15px, 1.2vw, 22px);
+}
+
+body {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--bg);
+  color: var(--text);
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4.5rem 1rem;
+}
+
+/* The theme button and the link nodes share the same pill look */
+.theme-toggle,
+a.node {
+  color: var(--text);
+  background: var(--node-bg);
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 0.9rem;
+  font: inherit; /* buttons don't use the page font by default */
+  cursor: pointer;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+header p {
+  color: var(--muted);
+}
+
+/* The tree is a 4-column, 3-row grid: one row per level of the tree */
+.tree {
+  position: relative; /* the SVG lines below are positioned inside the tree */
+  display: grid;
+  /* minmax(0, 1fr) keeps the 4 columns equal even when a pill is wider than its column */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(3, 8rem);
+  /* center each node in its cell */
+  align-items: center;
+  justify-items: center;
+}
+
+/* The SVG covers the whole grid so its % coordinates line up with the cells */
+.edges {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  stroke: var(--line);
+  stroke-width: 1.5;
+}
+
+/* position: relative puts the nodes on top of the SVG lines */
+.node {
+  position: relative;
+}
+
+.root {
+  grid-column: 2 / 4;
+  grid-row: 1;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+}
+
+.left { grid-column: 1 / 3; grid-row: 2; }
+.right { grid-column: 3 / 5; grid-row: 2; }
+.left-left { grid-column: 1; grid-row: 3; }
+.right-right { grid-column: 4; grid-row: 3; }
+
+a.node {
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+a.node:hover {
+  border-color: var(--accent);
+}
+
