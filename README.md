@@ -27,4 +27,4 @@ npm run dev
 
 **What was tricky:** React loads after the page is already on screen, so a dark-mode visitor would see a quick flash of light mode on every refresh. A small script in `index.html` sets the theme before the page shows, which fixes it.
 
-**What I'd improve:** If you haven't picked a theme yourself, keep following your computer's setting when it changes.
+**What I'd improve:** If the system's light/dark setting changes while the page is open, the site doesn't update until a refresh. With more time, I'd have it follow the system setting live until the visitor picks a theme manually.
