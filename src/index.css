@@ -24,6 +24,11 @@ html {
   font-size: clamp(15px, 1.2vw, 22px);
 }
 
+/* Colors fade smoothly when the theme switches */
+* {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s, stroke 0.3s;
+}
+
 body {
   margin: 0;
   font-family: 'JetBrains Mono', monospace;
