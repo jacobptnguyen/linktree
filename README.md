@@ -10,7 +10,7 @@ My link tree, drawn as a binary search tree. My photo is the root, and the links
    GitHub            Resume
 ```
 
-Live site: []()
+Live site: [jacobptnguyen.github.io/linktree](https://jacobptnguyen.github.io/linktree/)
 
 ## How to run it
 
